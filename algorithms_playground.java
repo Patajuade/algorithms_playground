@@ -4,13 +4,22 @@ import java.util.List;
 
 public class algorithms_playground {
     public static void main(String[] args) {
+        //----------------------------------------
         int[] tab = {6,5,4,3,2,1};
+        System.out.println("Original tab : " + Arrays.toString(tab));
+        //----------------------------------------
+        System.out.println("\n------- Reverse Method -------");
         reverse(tab);
         System.out.println(Arrays.toString(tab));
         //----------------------------------------
+        System.out.println("\n------- Join Method -------");
         join(tab, "~");
         joinThroughLoop(tab,"~");
-
+        //----------------------------------------
+        System.out.println("\n------- Take Method -------");
+        int[] tabForTakeMethod = {7,8,9,10,11};
+        take(tabForTakeMethod,9);
+        //----------------------------------------
     }
 
     public static void reverse(int[] tab){
@@ -48,9 +57,19 @@ public class algorithms_playground {
         System.out.println(result);
     }
 
-    public static void take(){
-        //Creates a slice of array with n elements taken from the beginning.
-
+    public static int[] take(int[] tab, int sliceToTake){ //Creates a slice of array with n elements taken from the beginning.
+        int[] result = new int[sliceToTake];
+        for(int i=0 ; i<sliceToTake ; i++){
+            result[i] = tab[i];
+            if(result.length>tab.length){
+                System.out.println();
+                System.out.println("Result tab & Original tab : " + Arrays.toString(tab));
+                return tab;
+            }
+        }
+        System.out.println("Original tab : "+ Arrays.toString(tab));
+        System.out.println("Result tab : " + Arrays.toString(result));
+        return result;
     }
 
     public static void uniq(){
